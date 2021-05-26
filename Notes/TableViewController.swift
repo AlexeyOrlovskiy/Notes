@@ -9,52 +9,34 @@ import UIKit
 
 class TableViewController: UITableViewController {
     
-    var selectedNoteText:UITextField?
+    var createdNoteText: String? = nil
+    var createTrigger: Bool = false
     
-    @IBAction func pushAddNote(_ sender: Any) {
-        let noteController = UIAlertController(title: "Создание заметки", message: nil, preferredStyle: .alert)
-        let noteActionCancel = UIAlertAction(title: "Закрыть", style: .destructive) { (alert) in }
-        let noteActionCreate = UIAlertAction(title: "Создать", style: .default) { (alert) in
-            let newNoteItem = noteController.textFields![0].text
-            if newNoteItem != "" {
-                addNote(noteItem: newNoteItem!)
-                self.tableView.reloadData()
-            }
+    @IBAction func createNoteTrigger(_ sender: Any) {
+        createTrigger = true
+    }
+    // MARK: Getting changed or new note
+    @IBAction func unwindSegueForMainScreen(segue: UIStoryboardSegue) {
+        guard let sourceVC = segue.source as? detailViewController else { return }
+        createdNoteText = sourceVC.detailedNote.text
+
+        if sourceVC.noteToCreate! {
+            notesList[sourceVC.editedNoteIndex!] = createdNoteText!
+        } else {
+            addNote(noteItem: createdNoteText!)
         }
         
-        noteController.addTextField { (textField) in
-            textField.placeholder = "Введите текст заметки..."
-            noteActionCreate.isEnabled = false
-            NotificationCenter.default.addObserver(forName: UITextField.textDidChangeNotification, object: textField, queue: OperationQueue.main, using: {_ in
-                let textCount = textField.text?.trimmingCharacters(in: .whitespacesAndNewlines).count ?? 0
-                let textIsNotEmpty = textCount > 0
-                
-                noteActionCreate.isEnabled = textIsNotEmpty
-            })
-        }
-    
-        noteController.addAction(noteActionCancel)
-        noteController.addAction(noteActionCreate)
-        present(noteController, animated: true, completion: nil)
+        self.tableView.reloadData()
     }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
-
-    // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
         return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
         return notesList.count
     }
 
-    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         
@@ -62,45 +44,26 @@ class TableViewController: UITableViewController {
 
         return cell
     }
-    
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let noteSelectedText = notesList[indexPath.row] as? String
-        let editDialog = UIAlertController(title: "Изменить заметку", message: nil, preferredStyle: .alert)
-        let noteEditCancel = UIAlertAction(title: "Закрыть", style: .destructive) { (alert) in }
-        let noteEditUpdate = UIAlertAction(title: "Сохранить", style: .default) { (alert) in
-            let updatedNoteText = editDialog.textFields![0].text
-            notesList[indexPath.row] = updatedNoteText
-            self.tableView.reloadData()
-        }
-        editDialog.addTextField { (textField) in
-            textField.text = noteSelectedText
-            NotificationCenter.default.addObserver(forName: UITextField.textDidChangeNotification, object: textField, queue: OperationQueue.main, using: {_ in
-                let textCount = textField.text?.trimmingCharacters(in: .whitespacesAndNewlines).count ?? 0
-                let textIsNotEmpty = textCount > 0
-                
-                noteEditUpdate.isEnabled = textIsNotEmpty
-            })
-        }
-    
-        editDialog.addAction(noteEditCancel)
-        editDialog.addAction(noteEditUpdate)
-        present(editDialog, animated: true, completion: nil)
-    }
-    
-    // Override to support conditional editing of the table view.
+
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
         return true
     }
 
-    // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            // Delete the row from the data source
             removeNote(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+        } else if editingStyle == .insert {}
+    }
+    // MARK: Passing date to Detail View Controller
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let detailedVC = segue.destination as? detailViewController else { return }
+        if segue.identifier == "editingNoteSegue" {
+            detailedVC.buttonTitle = "Сохранить"
+            let index = self.tableView.indexPathForSelectedRow
+            let indexNumber = index?.row
+            detailedVC.passedNoteText = notesList[indexNumber!] as? String
+            detailedVC.editedNoteIndex = indexNumber!
+        }
     }
 }

@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="c4h-G7-377">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="c4h-G7-377">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -17,7 +18,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" textLabel="EGV-21-BUq" style="IBUITableViewCellStyleDefault" id="ePf-lA-J7T">
-                                <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
+                                <rect key="frame" x="0.0" y="24.5" width="414" height="43.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ePf-lA-J7T" id="kPe-kn-QMP">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
@@ -32,6 +33,9 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="MWK-Zn-bd7" kind="show" identifier="editingNoteSegue" id="Pjh-Rq-IZE"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -43,7 +47,8 @@
                         <barButtonItem key="rightBarButtonItem" image="plus.circle.fill" catalog="system" id="8J1-PD-waF">
                             <color key="tintColor" systemColor="systemGreenColor"/>
                             <connections>
-                                <action selector="pushAddNote:" destination="aix-7g-6G8" id="Xv3-yY-oBb"/>
+                                <action selector="createNoteTrigger:" destination="aix-7g-6G8" id="xk2-ac-ph4"/>
+                                <segue destination="MWK-Zn-bd7" kind="show" identifier="" id="ihn-5h-bu7"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -51,6 +56,58 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x47-5L-2xc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="707.24637681159425" y="92.410714285714278"/>
+        </scene>
+        <!--Detail View Controller-->
+        <scene sceneID="pJO-uW-BaU">
+            <objects>
+                <viewController id="MWK-Zn-bd7" customClass="detailViewController" customModule="Notes" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="uCP-ub-O9y">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="emn-Oo-FAn">
+                                <rect key="frame" x="131" y="608" width="152" height="41"/>
+                                <color key="backgroundColor" systemColor="systemGreenColor"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" weight="bold"/>
+                                </state>
+                                <connections>
+                                    <segue destination="kLw-Av-ybo" kind="unwind" unwindAction="unwindSegueForMainScreenWithSegue:" id="sUM-mC-SMd"/>
+                                </connections>
+                            </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CTD-Up-Re8">
+                                <rect key="frame" x="0.0" y="88" width="414" height="411"/>
+                                <color key="backgroundColor" systemColor="secondarySystemBackgroundColor"/>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="90z-Dl-a9d"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="90z-Dl-a9d" firstAttribute="trailing" secondItem="emn-Oo-FAn" secondAttribute="trailing" constant="131" id="6au-Yr-QYb"/>
+                            <constraint firstItem="CTD-Up-Re8" firstAttribute="top" secondItem="90z-Dl-a9d" secondAttribute="top" id="9Zk-D2-kmb"/>
+                            <constraint firstItem="emn-Oo-FAn" firstAttribute="leading" secondItem="90z-Dl-a9d" secondAttribute="leading" constant="131" id="H1O-RK-Ktd"/>
+                            <constraint firstItem="90z-Dl-a9d" firstAttribute="trailing" secondItem="CTD-Up-Re8" secondAttribute="trailing" constant="20" id="ZtV-2D-CYA"/>
+                            <constraint firstItem="90z-Dl-a9d" firstAttribute="bottom" secondItem="CTD-Up-Re8" secondAttribute="bottom" constant="363" id="eXL-TF-x93"/>
+                            <constraint firstItem="emn-Oo-FAn" firstAttribute="top" secondItem="CTD-Up-Re8" secondAttribute="bottom" constant="109" id="icT-40-Nmx"/>
+                            <constraint firstItem="90z-Dl-a9d" firstAttribute="bottom" secondItem="emn-Oo-FAn" secondAttribute="bottom" constant="221" id="lux-0O-FIX"/>
+                            <constraint firstItem="CTD-Up-Re8" firstAttribute="leading" secondItem="90z-Dl-a9d" secondAttribute="leading" constant="20" id="phW-Ya-hw4"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="D64-jj-Cfg"/>
+                    <connections>
+                        <outlet property="actionButton" destination="emn-Oo-FAn" id="rDV-OB-QoL"/>
+                        <outlet property="detailedNote" destination="CTD-Up-Re8" id="hyK-ee-emy"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tIs-F9-JaP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="kLw-Av-ybo" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="1571.0144927536232" y="91.741071428571431"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="dqN-Pj-cGp">
@@ -71,8 +128,17 @@
             <point key="canvasLocation" x="-202.89855072463769" y="92.410714285714278"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="Pjh-Rq-IZE"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="plus.circle.fill" catalog="system" width="128" height="121"/>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="secondarySystemBackgroundColor">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

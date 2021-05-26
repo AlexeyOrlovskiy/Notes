@@ -17,6 +17,7 @@
 		661739382602713900ACF5CC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 661738F926026D3C00ACF5CC /* Main.storyboard */; };
 		661739432602823A00ACF5CC /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 661739422602823A00ACF5CC /* TableViewController.swift */; };
 		661739482602830300ACF5CC /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 661739472602830300ACF5CC /* Model.swift */; };
+		66D37951265E57460018957F /* detailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66D37950265E57460018957F /* detailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		6617391A26026D3D00ACF5CC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		661739422602823A00ACF5CC /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		661739472602830300ACF5CC /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		66D37950265E57460018957F /* detailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = detailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +109,7 @@
 				661738F526026D3C00ACF5CC /* SceneDelegate.swift */,
 				661738F926026D3C00ACF5CC /* Main.storyboard */,
 				661739422602823A00ACF5CC /* TableViewController.swift */,
+				66D37950265E57460018957F /* detailViewController.swift */,
 				661739472602830300ACF5CC /* Model.swift */,
 				661738FF26026D3D00ACF5CC /* Assets.xcassets */,
 				6617390126026D3D00ACF5CC /* LaunchScreen.storyboard */,
@@ -269,6 +272,7 @@
 				661738F626026D3C00ACF5CC /* SceneDelegate.swift in Sources */,
 				661738FE26026D3C00ACF5CC /* Notes.xcdatamodeld in Sources */,
 				661739432602823A00ACF5CC /* TableViewController.swift in Sources */,
+				66D37951265E57460018957F /* detailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
