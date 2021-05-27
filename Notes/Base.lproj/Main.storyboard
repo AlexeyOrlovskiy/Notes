@@ -65,7 +65,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="emn-Oo-FAn">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="emn-Oo-FAn">
                                 <rect key="frame" x="131" y="608" width="152" height="41"/>
                                 <color key="backgroundColor" systemColor="systemGreenColor"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
@@ -77,11 +77,11 @@
                                     <segue destination="kLw-Av-ybo" kind="unwind" unwindAction="unwindSegueForMainScreenWithSegue:" id="sUM-mC-SMd"/>
                                 </connections>
                             </button>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CTD-Up-Re8">
-                                <rect key="frame" x="0.0" y="88" width="414" height="411"/>
-                                <color key="backgroundColor" systemColor="secondarySystemBackgroundColor"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CTD-Up-Re8">
+                                <rect key="frame" x="20" y="110" width="374" height="411"/>
+                                <color key="backgroundColor" systemColor="systemGray5Color"/>
                                 <color key="textColor" systemColor="labelColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                         </subviews>
@@ -89,12 +89,12 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="90z-Dl-a9d" firstAttribute="trailing" secondItem="emn-Oo-FAn" secondAttribute="trailing" constant="131" id="6au-Yr-QYb"/>
-                            <constraint firstItem="CTD-Up-Re8" firstAttribute="top" secondItem="90z-Dl-a9d" secondAttribute="top" id="9Zk-D2-kmb"/>
+                            <constraint firstItem="CTD-Up-Re8" firstAttribute="top" secondItem="90z-Dl-a9d" secondAttribute="top" constant="22" id="9Zk-D2-kmb"/>
                             <constraint firstItem="emn-Oo-FAn" firstAttribute="leading" secondItem="90z-Dl-a9d" secondAttribute="leading" constant="131" id="H1O-RK-Ktd"/>
                             <constraint firstItem="90z-Dl-a9d" firstAttribute="trailing" secondItem="CTD-Up-Re8" secondAttribute="trailing" constant="20" id="ZtV-2D-CYA"/>
-                            <constraint firstItem="90z-Dl-a9d" firstAttribute="bottom" secondItem="CTD-Up-Re8" secondAttribute="bottom" constant="363" id="eXL-TF-x93"/>
-                            <constraint firstItem="emn-Oo-FAn" firstAttribute="top" secondItem="CTD-Up-Re8" secondAttribute="bottom" constant="109" id="icT-40-Nmx"/>
-                            <constraint firstItem="90z-Dl-a9d" firstAttribute="bottom" secondItem="emn-Oo-FAn" secondAttribute="bottom" constant="221" id="lux-0O-FIX"/>
+                            <constraint firstItem="90z-Dl-a9d" firstAttribute="bottom" secondItem="CTD-Up-Re8" secondAttribute="bottom" constant="341" id="eXL-TF-x93"/>
+                            <constraint firstItem="emn-Oo-FAn" firstAttribute="top" secondItem="CTD-Up-Re8" secondAttribute="bottom" constant="87" id="icT-40-Nmx"/>
+                            <constraint firstItem="90z-Dl-a9d" firstAttribute="bottom" secondItem="emn-Oo-FAn" secondAttribute="bottom" constant="213" id="lux-0O-FIX"/>
                             <constraint firstItem="CTD-Up-Re8" firstAttribute="leading" secondItem="90z-Dl-a9d" secondAttribute="leading" constant="20" id="phW-Ya-hw4"/>
                         </constraints>
                     </view>
@@ -136,11 +136,11 @@
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
-        <systemColor name="secondarySystemBackgroundColor">
-            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray5Color">
+            <color red="0.89803921568627454" green="0.89803921568627454" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemGreenColor">
             <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
