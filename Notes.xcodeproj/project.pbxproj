@@ -105,14 +105,11 @@
 		661738F226026D3C00ACF5CC /* Notes */ = {
 			isa = PBXGroup;
 			children = (
-				661738F326026D3C00ACF5CC /* AppDelegate.swift */,
-				661738F526026D3C00ACF5CC /* SceneDelegate.swift */,
-				661738F926026D3C00ACF5CC /* Main.storyboard */,
-				661739422602823A00ACF5CC /* TableViewController.swift */,
-				66D37950265E57460018957F /* detailViewController.swift */,
-				661739472602830300ACF5CC /* Model.swift */,
-				661738FF26026D3D00ACF5CC /* Assets.xcassets */,
-				6617390126026D3D00ACF5CC /* LaunchScreen.storyboard */,
+				8A1E79BD26E8DB6100DE8181 /* Support Files */,
+				8A1E79BC26E8DB4200DE8181 /* iBuilder */,
+				8A1E79BB26E8DB1700DE8181 /* Helpers */,
+				8A1E79BA26E8DAC300DE8181 /* Models */,
+				8A1E79B926E8DA8B00DE8181 /* View Controllers */,
 				6617390426026D3D00ACF5CC /* Info.plist */,
 				661738FC26026D3C00ACF5CC /* Notes.xcdatamodeld */,
 			);
@@ -135,6 +132,49 @@
 				6617391A26026D3D00ACF5CC /* Info.plist */,
 			);
 			path = NotesUITests;
+			sourceTree = "<group>";
+		};
+		8A1E79B926E8DA8B00DE8181 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				661739422602823A00ACF5CC /* TableViewController.swift */,
+				66D37950265E57460018957F /* detailViewController.swift */,
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		8A1E79BA26E8DAC300DE8181 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				661739472602830300ACF5CC /* Model.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		8A1E79BB26E8DB1700DE8181 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		8A1E79BC26E8DB4200DE8181 /* iBuilder */ = {
+			isa = PBXGroup;
+			children = (
+				6617390126026D3D00ACF5CC /* LaunchScreen.storyboard */,
+				661738F926026D3C00ACF5CC /* Main.storyboard */,
+			);
+			path = iBuilder;
+			sourceTree = "<group>";
+		};
+		8A1E79BD26E8DB6100DE8181 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				661738F526026D3C00ACF5CC /* SceneDelegate.swift */,
+				661738F326026D3C00ACF5CC /* AppDelegate.swift */,
+				661738FF26026D3D00ACF5CC /* Assets.xcassets */,
+			);
+			path = "Support Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -454,7 +494,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = MeatB.Notes;
+				PRODUCT_BUNDLE_IDENTIFIER = Alexey.Notes;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -472,7 +512,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = MeatB.Notes;
+				PRODUCT_BUNDLE_IDENTIFIER = Alexey.Notes;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
